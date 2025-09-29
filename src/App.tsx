@@ -16,6 +16,17 @@ import northernImg from "./assets/north_sodo.jpg";
 import saudiImg from "./assets/saudi.jpg";
 import najdDiveImg from "./assets/najd.jpg";
 
+import center from "./assets/region/center.jpg"
+import center2 from "./assets/region/center2.jpg"
+import east from "./assets/region/east.jpg"
+import north from './assets/region/north.jpg'
+import south from "./assets/region/south.jpg"
+import west2 from "./assets/region/west2.jpg"
+import west3 from "./assets/region/west3.jpg"
+
+
+
+
 const sections = [
   { id: "overview", label: "Overview" },
   { id: "intro", label: "Intro Video" },
@@ -34,27 +45,27 @@ const diveRegions = [
   },
   { 
     name: "Najd", 
-    img: najdDiveImg, 
+    img: center2, 
     color: "#FF6B4A" // warm desert orange
   },
   { 
     name: "Hijaz", 
-    img: hijazImg, 
+    img: west3, 
     color: "#19C5C5" // turquoise
   },
   { 
     name: "Aljanoub", 
-    img: aljanoubImg, 
+    img: south, 
     color: "#34D399" // emerald green
   },
   { 
     name: "Eastern", 
-    img: easternImg, 
+    img: east, 
     color: "#60A5FA" // sky blue
   },
   { 
     name: "Northern", 
-    img: northernImg, 
+    img: north, 
     color: "#C084FC" // purple
   },
 ];

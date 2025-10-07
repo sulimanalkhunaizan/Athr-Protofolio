@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://sulimanalkhunaizan.github.io/athr-portfolio",
+  "homepage": "https://sulimanalkhunaizan.github.io/Athr-Protofolio",
   "dependencies": {
     "framer-motion": "^12.23.22",
     "react": "^19.1.1",

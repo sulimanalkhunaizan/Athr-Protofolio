@@ -189,7 +189,7 @@ export default function App() {
           >
             {/* Background video */}
             <video
-              src="/poem_background.mp4"
+              src="/Athr-Protofolio/poem_background.mp4"
               autoPlay
               muted
               playsInline

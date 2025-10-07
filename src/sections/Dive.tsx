@@ -1,244 +1,244 @@
-import { motion, useScroll, useTransform, useSpring, animate } from "framer-motion";
-import { useMemo, useRef, useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-type Region = { name: string; img: string; color: string };
+// Add this interface at the top
+// Update Region interface
+type Region = {
+  name: string;
+  img: string;
+  bg: string;
+  color: string;
+  terrain: string;
+  sites: number;
+  feature: string;
+  size: string;
+};
 
-export default function Dive({ regions }: { regions: Region[] }) {
-  const containerRef = useRef<HTMLDivElement>(null);
+interface DiveProps {
+  regions: Region[];
+}
+
+export default function Dive({ regions }: DiveProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
+  // Add null check for regions
+  const currentRegion = regions[currentIndex] || { name: "", img: "", bg: "", color: "#ccc", terrain: "", sites: 0, feature: "", size: "" };
 
-    const interval = setInterval(() => {
+  const nextRegion = () => {
+    if (isTransitioning || regions.length === 0) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % regions.length);
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, regions.length]);
-
-  // Handle manual navigation
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-    // Resume auto-play after manual interaction
-    setTimeout(() => setIsAutoPlaying(true), 8000);
+      setIsTransitioning(false);
+    }, 600);
   };
 
-  // Handle swipe detection
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
+  const prevRegion = () => {
+    if (isTransitioning || regions.length === 0) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + regions.length) % regions.length);
+      setIsTransitioning(false);
+    }, 600);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 50) {
-      // Swipe left - next slide
-      goToSlide((currentIndex + 1) % regions.length);
-    }
-
-    if (touchStart - touchEnd < -50) {
-      // Swipe right - previous slide
-      goToSlide((currentIndex - 1 + regions.length) % regions.length);
-    }
-  };
-
-  // Keyboard navigation
+  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        goToSlide((currentIndex - 1 + regions.length) % regions.length);
-      } else if (e.key === 'ArrowRight') {
-        goToSlide((currentIndex + 1) % regions.length);
-      }
+      if (e.key === "ArrowRight") nextRegion();
+      if (e.key === "ArrowLeft") prevRegion();
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentIndex]);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isTransitioning, regions.length]);
+
+  // Auto-advance
+  useEffect(() => {
+    if (regions.length === 0) return;
+    const interval = setInterval(nextRegion, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex, isTransitioning, regions.length]);
+
+  if (regions.length === 0) {
+    return (
+      <section id="divein" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-blue-900">
+        <div className="text-center text-white">
+          <h2 className="text-4xl font-bold mb-4 font-[Noto Sans Arabic]">استكشف المناطق</h2>
+          <p>No regions available</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section
-      id="divein"
-      className="relative w-screen h-screen overflow-hidden bg-black"
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* Background Images with Smooth Transitions */}
-      <div className="absolute inset-0 z-0">
-        {regions.map((region, index) => (
-          <motion.div
-            key={region.name}
-            className="absolute inset-0 w-full h-full"
-            initial={false}
-            animate={{
-              opacity: index === currentIndex ? 1 : 0,
-              scale: index === currentIndex ? 1 : 1.1,
-            }}
-            transition={{
-              duration: 1.2,
-              ease: [0.25, 0.1, 0.25, 1],
-            }}
-          >
-            <img
-              src={region.img}
-              alt={region.name}
-              className="w-full h-full object-cover"
-            />
-            {/* Gradient Overlay */}
-            <div 
-              className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/40"
-              style={{ 
-                backgroundColor: `${region.color}10`,
-                mixBlendMode: 'overlay'
-              }}
-            />
-          </motion.div>
-        ))}
+    <section id="divein" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-blue-900">
+      {/* Background with blur effect */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={currentRegion.name}
+            src={currentRegion.bg}
+            alt={currentRegion.name}
+            className="w-full h-full object-cover"
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.8 }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-start px-8 md:px-20 lg:px-32">
-        {/* Main Text */}
-        <div className="mb-8">
-          <motion.h2 
-            key={`heading-${currentIndex}`}
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Dive into
-          </motion.h2>
-          
-          <motion.h1
-            key={`region-${currentIndex}`}
-            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight"
-            style={{ color: regions[currentIndex].color }}
+      <div className="container mx-auto px-8 py-20 relative z-10">
+        <motion.h2 
+          className="text-5xl md:text-7xl font-bold text-center mb-16 text-white font-[Noto Sans Arabic]"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          استكشف مناطق المملكة
+        </motion.h2>
+
+        <div ref={containerRef} className="max-w-4xl mx-auto relative">
+          {/* Region Card */}
+          <motion.div
+            key={currentRegion.name}
+            className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ 
-              duration: 0.8, 
-              delay: 0.4,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.6 }}
           >
-            {regions[currentIndex].name}
-          </motion.h1>
-        </div>
-
-        {/* Navigation Dots */}
-        <div className="flex space-x-4 mt-12">
-          {regions.map((region, index) => (
-            <button
-              key={region.name}
-              onClick={() => goToSlide(index)}
-              className="relative group focus:outline-none"
-            >
-              <motion.div
-                className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-                  index === currentIndex ? 'border-white' : 'border-white/40'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
+            <div className="text-center">
+              {/* Region Name */}
+              <motion.h3 
+                className="text-4xl md:text-6xl font-bold text-white mb-6 font-[Noto Sans Arabic]"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <motion.div
-                  className="w-full h-full rounded-full"
-                  style={{ backgroundColor: region.color }}
-                  initial={false}
-                  animate={{
-                    scale: index === currentIndex ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
+                {currentRegion.name}
+              </motion.h3>
+
+              {/* Region Image */}
+              <motion.div
+                className="w-full max-w-md mx-auto mb-6 rounded-3xl overflow-hidden border-4 border-white/30 shadow-lg"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4, type: 'spring' }}
+              >
+                <img
+                  src={currentRegion.img}
+                  alt={currentRegion.name}
+                  className="w-full h-64 object-cover"
                 />
               </motion.div>
-              
-              {/* Tooltip */}
-              <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="bg-black/80 text-white text-sm px-3 py-1 rounded-full whitespace-nowrap">
-                  {region.name}
-                </div>
+
+              {/* Two separate circles for size and terrain with regional patterns */}
+              <div className="flex justify-center gap-8 mb-6">
+                {/* Terrain Circle (left) */}
+                <motion.div
+                  className="w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-lg font-[Noto Sans Arabic] relative overflow-hidden"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5, type: 'spring' }}
+                >
+                  {/* Regional Pattern Background */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-30"
+                    style={{
+                      backgroundImage: `url(${currentRegion.bg})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(1px)'
+                    }}
+                  />
+                  {/* Overlay for better text readability */}
+                  <div className="absolute inset-0 rounded-full bg-black/40"></div>
+                  <span className="relative z-10 text-lg font-bold text-white">{currentRegion.terrain}</span>
+                </motion.div>
+                
+                {/* Size Circle (right) */}
+                <motion.div
+                  className="w-24 h-24 rounded-full flex flex-col items-center justify-center shadow-lg font-[Noto Sans Arabic] relative overflow-hidden"
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, type: 'spring' }}
+                >
+                  {/* Regional Pattern Background */}
+                  <div 
+                    className="absolute inset-0 rounded-full opacity-30"
+                    style={{
+                      backgroundImage: `url(${currentRegion.bg})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(1px)'
+                    }}
+                  />
+                  {/* Overlay for better text readability */}
+                  <div className="absolute inset-0 rounded-full bg-black/40"></div>
+                  <span className="relative z-10 text-lg font-bold text-white">{currentRegion.size}</span>
+                </motion.div>
               </div>
-            </button>
-          ))}
-        </div>
 
-        {/* Navigation Arrows */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex space-x-8">
-          <motion.button
-            onClick={() => goToSlide((currentIndex - 1 + regions.length) % regions.length)}
-            className="text-white/70 hover:text-white transition-colors duration-300 focus:outline-none"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </motion.button>
-          
-          <motion.button
-            onClick={() => goToSlide((currentIndex + 1) % regions.length)}
-            className="text-white/70 hover:text-white transition-colors duration-300 focus:outline-none"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <svg className="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.button>
-        </div>
+              {/* Feature */}
+              <motion.p
+                className="text-xl text-gray-200 mb-4 font-[Noto Sans Arabic] leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                {currentRegion.feature}
+              </motion.p>
 
-        {/* Swipe Instructions */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              <span>Swipe</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <motion.p
+                className="text-lg text-gray-200 font-[Noto Sans Arabic] leading-relaxed"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+              >
+                اكتشف التراث الغني والثقافة المتنوعة لـ {currentRegion.name}
+              </motion.p>
             </div>
-            <span className="text-white/40">|</span>
-            <span>Click dots to explore</span>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
 
-      {/* Progress Bar */}
-      <div className="absolute top-0 left-0 right-0 h-1 z-20 bg-white/20">
-        <motion.div
-          className="h-full bg-white"
-          initial={false}
-          animate={{
-            width: isAutoPlaying ? '100%' : '0%',
-          }}
-          transition={{
-            duration: 4,
-            ease: "linear",
-          }}
-          key={currentIndex}
-          onAnimationComplete={() => {
-            if (isAutoPlaying) {
-              setCurrentIndex((prev) => (prev + 1) % regions.length);
-            }
-          }}
-        />
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevRegion}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all border border-white/30"
+            disabled={isTransitioning}
+          >
+            ←
+          </button>
+
+          <button
+            onClick={nextRegion}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all border border-white/30"
+            disabled={isTransitioning}
+          >
+            →
+          </button>
+
+          {/* Navigation Dots */}
+          <div className="flex justify-center mt-8 space-x-3">
+            {regions.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex 
+                    ? "bg-white scale-125" 
+                    : "bg-white/30 hover:bg-white/50"
+                }`}
+                disabled={isTransitioning}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

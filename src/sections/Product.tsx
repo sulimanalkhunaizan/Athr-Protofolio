@@ -58,7 +58,7 @@ export default function ProductSection({ desertBg }: ProductSectionProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h4 className="text-2xl font-bold text-white mb-4 font-[Noto Sans Arabic]">قابلة للتطوير</h4>
+                <h4 className="text-2xl font-bold text-white mb-4 font-[Noto Sans Arabic]">بنية مستدامة </h4>
                 <p className="text-gray-200 font-[Noto Sans Arabic]">بنية تقنية تسمح بالتوسع المستمر وإضافة ميزات جديدة بسلاسة</p>
               </motion.div>
             </div>

@@ -7,14 +7,14 @@ interface AudienceSectionProps {
 export default function AudienceSection({ traditionalBg }: AudienceSectionProps) {
   const audiences = [
     {
-      title: "السياح",
-      description: "  أداة تخطيط شاملة وموثوقة لزياراتهم",
-      color: "#CE1126"
-    },
-    {
       title: "المواطنون والمقيمون",
       description: "  اكتشاف معالم وطنهم والتعرف على تاريخه",
       color: "#006C35"
+    },
+    {
+      title: "السياح",
+      description: "  أداة تخطيط شاملة وموثوقة لزياراتهم",
+      color: "#CE1126"
     },
     {
       title: "الطلاب والباحثون",

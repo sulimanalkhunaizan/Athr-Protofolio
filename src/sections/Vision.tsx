@@ -29,7 +29,8 @@ export default function VisionSection({ architectureBg }: VisionSectionProps) {
           >
             <div className="text-[#beb389] text-4xl mb-6 font-[Noto Sans Arabic] font-bold">رؤيتنا</div>
             <p className="text-xl text-gray-200 leading-relaxed mb-6 font-[Noto Sans Arabic]">
-              أن نكون المنصة الرقمية الرائدة والموثوقة التي تربط الناس بالتراث الثقافي والطبيعي، وتلهمهم لاستكشافه والمحافظة عليه.
+
+            تعزيز اهمية التراث الثقافي والطبيعي بما يتماشى مع أهداف رؤية المملكة 2030 في اثراء تجربة المواطنين، والزوار وابراز التراث الثقافي من خلال تطبيق مبتكر وسهل الاستخدام يقدم معلومات شاملة ومنظمة عن المواقع التراثية.
             </p>
           </motion.div>
 
@@ -42,7 +43,7 @@ export default function VisionSection({ architectureBg }: VisionSectionProps) {
           >
             <div className="text-[#beb389] text-4xl mb-6 font-[Noto Sans Arabic] font-bold">رسالتنا</div>
             <p className="text-xl text-gray-200 leading-relaxed mb-6 font-[Noto Sans Arabic]">
-              بما يتماشى مع أهداف رؤية المملكة 2030 في إثراء تجربة الزوار وإبراز التراث الوطني، تم توفير تطبيق مبتكر وسهل الاستخدام يقدم معلومات شاملة ومنظمة عن المواقع التراثية.
+            تعزيز ثقافة استكشاف التراث الطبيعي والثقافي للمملكة العربية السعوديه والمحافظه عليه.
             </p>
           </motion.div>
         </div>

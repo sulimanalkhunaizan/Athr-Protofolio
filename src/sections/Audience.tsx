@@ -8,17 +8,17 @@ export default function AudienceSection({ traditionalBg }: AudienceSectionProps)
   const audiences = [
     {
       title: "السياح",
-      description: "يبحثون عن أداة تخطيط شاملة وموثوقة لزياراتهم",
+      description: "  أداة تخطيط شاملة وموثوقة لزياراتهم",
       color: "#CE1126"
     },
     {
-      title: "العائلات والمقيمون",
-      description: "يرغبون في اكتشاف معالم بلدهم في العطلات والتعرف على تاريخها",
+      title: "المواطنون والمقيمون",
+      description: "  اكتشاف معالم وطنهم والتعرف على تاريخه",
       color: "#006C35"
     },
     {
       title: "الطلاب والباحثون",
-      description: "يحتاجون إلى مصدر سريع ومنظم للمعلومات التاريخية والثقافية الموثقة",
+      description: " مصدر سريع ومنظم للمعلومات التاريخية والثقافية الموثقة",
       color: "#1E90FF"
     },
     {

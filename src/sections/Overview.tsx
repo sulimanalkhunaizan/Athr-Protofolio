@@ -21,7 +21,7 @@ export default function OverviewSection({ logo, worldmap, cloud1, regions }: Ove
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Clouds */}
+      {/* Clouds
       <motion.img
         src={cloud1}
         alt="Cloud"
@@ -35,14 +35,14 @@ export default function OverviewSection({ logo, worldmap, cloud1, regions }: Ove
         className="absolute bottom-20 right-0 w-1/3 opacity-60"
         animate={{ x: ["0%", "-120%"] }}
         transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-      />
+      /> */}
 
       {/* Content */}
       <div className="relative z-10 text-center text-white drop-shadow-lg">
         <motion.img
           src={logo}
           alt="Athr Logo"
-          className="mx-auto w-32 mb-6"
+          className="mx-auto w-48 md:w-56 mb-6"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}

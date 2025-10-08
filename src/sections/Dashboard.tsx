@@ -54,10 +54,10 @@ export default function TourismDashboardSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Domestic Tourism – Saudi Arabia
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 font-[Noto Sans Arabic]">
+            السياحة المحلية – المملكة العربية السعودية
           </h2>
-          <p className="text-xl text-amber-200 font-light">(2015–2024)</p>
+          <p className="text-xl text-amber-200 font-light font-[Noto Sans Arabic]">(2015–2024)</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -73,15 +73,15 @@ export default function TourismDashboardSection() {
             
             <div className="relative z-10">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-2xl font-bold text-white">Tourism Growth Trends</h3>
+                <h3 className="text-2xl font-bold text-white font-[Noto Sans Arabic]">اتجاهات نمو السياحة</h3>
                 <div className="flex gap-4">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
-                    <span className="text-white text-sm">Tourists (Million)</span>
+                    <span className="text-white text-sm font-[Noto Sans Arabic]">السياح (مليون)</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                    <span className="text-white text-sm">Spending (Billion SAR)</span>
+                    <span className="text-white text-sm font-[Noto Sans Arabic]">الإنفاق (مليار ريال)</span>
                   </div>
                 </div>
               </div>
@@ -175,46 +175,34 @@ export default function TourismDashboardSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-green-400/10 to-amber-400/5 rounded-2xl"></div>
             
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold text-white mb-2">2024 Performance</h3>
-              <p className="text-green-300 text-sm mb-8">Record Year Highlights</p>
+              <h3 className="text-2xl font-bold text-white mb-2 font-[Noto Sans Arabic]">أداء 2024</h3>
+              <p className="text-green-300 text-sm mb-8 font-[Noto Sans Arabic]">أبرز إنجازات العام القياسي</p>
 
               <div className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl border border-amber-400/20">
-                  <div className="text-2xl">👥</div>
-                  <div>
-                    <div className="text-amber-200 text-sm">Tourists</div>
-                    <div className="text-2xl font-bold text-white">{summary2024.tourists} Million</div>
-                  </div>
+                <div className="p-4 bg-gray-700/30 rounded-xl border border-amber-400/20">
+                  <div className="text-amber-200 text-sm font-[Noto Sans Arabic]">السياح</div>
+                  <div className="text-2xl font-bold text-white">{summary2024.tourists} مليون</div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl border border-green-400/20">
-                  <div className="text-2xl">🛏️</div>
-                  <div>
-                    <div className="text-green-200 text-sm">Overnight Stays</div>
-                    <div className="text-2xl font-bold text-white">{summary2024.overnightStays} Million Nights</div>
-                  </div>
+                <div className="p-4 bg-gray-700/30 rounded-xl border border-green-400/20">
+                  <div className="text-green-200 text-sm font-[Noto Sans Arabic]">الإقامات الليلية</div>
+                  <div className="text-2xl font-bold text-white">{summary2024.overnightStays} مليون ليلة</div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl border border-amber-400/20">
-                  <div className="text-2xl">📊</div>
-                  <div>
-                    <div className="text-amber-200 text-sm">Average Stay</div>
-                    <div className="text-2xl font-bold text-white">{summary2024.averageStay} Nights</div>
-                  </div>
+                <div className="p-4 bg-gray-700/30 rounded-xl border border-amber-400/20">
+                  <div className="text-amber-200 text-sm font-[Noto Sans Arabic]">متوسط الإقامة</div>
+                  <div className="text-2xl font-bold text-white">{summary2024.averageStay} ليلة</div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 bg-gray-700/30 rounded-xl border border-green-400/20">
-                  <div className="text-2xl">💰</div>
-                  <div>
-                    <div className="text-green-200 text-sm">Total Spending</div>
-                    <div className="text-2xl font-bold text-white">{summary2024.spending} Billion SAR</div>
-                  </div>
+                <div className="p-4 bg-gray-700/30 rounded-xl border border-green-400/20">
+                  <div className="text-green-200 text-sm font-[Noto Sans Arabic]">إجمالي الإنفاق</div>
+                  <div className="text-2xl font-bold text-white">{summary2024.spending} مليار ريال</div>
                 </div>
               </div>
 
               <div className="mt-8 pt-4 border-t border-gray-600/50">
-                <p className="text-gray-400 text-xs text-center">
-                  Data Source: Ministry of Tourism, 2024
+                <p className="text-gray-400 text-xs text-center font-[Noto Sans Arabic]">
+                  مصدر البيانات: وزارة السياحة، 2024
                 </p>
               </div>
             </div>
@@ -230,15 +218,15 @@ export default function TourismDashboardSection() {
         >
           <div className="text-center p-6 bg-amber-400/10 rounded-2xl border border-amber-400/30">
             <div className="text-3xl text-amber-400 font-bold">+96%</div>
-            <div className="text-amber-200 mt-2">Tourist Growth (2015-2024)</div>
+            <div className="text-amber-200 mt-2 font-[Noto Sans Arabic]">نمو السياح (2015-2024)</div>
           </div>
           <div className="text-center p-6 bg-green-400/10 rounded-2xl border border-green-400/30">
             <div className="text-3xl text-green-400 font-bold">+424%</div>
-            <div className="text-green-200 mt-2">Spending Growth (2015-2024)</div>
+            <div className="text-green-200 mt-2 font-[Noto Sans Arabic]">نمو الإنفاق (2015-2024)</div>
           </div>
           <div className="text-center p-6 bg-amber-400/10 rounded-2xl border border-amber-400/30">
             <div className="text-3xl text-amber-400 font-bold">6.25x</div>
-            <div className="text-amber-200 mt-2">Average Stay Duration</div>
+            <div className="text-amber-200 mt-2 font-[Noto Sans Arabic]">متوسط مدة الإقامة</div>
           </div>
         </motion.div>
       </div>

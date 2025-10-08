@@ -27,12 +27,7 @@ const screens = [
     image: Splash,
     type: "main",
     layout: "right",
-    features: [
-      "تصميم يعكس الهوية السعودية",
-      "تحميل سريع وفعال",
-      "تجربة مستخدم متميزة",
-      "انطلاق سلس للتطبيق"
-    ]
+    features: []
   },
   {
     title: "تسجيل الدخول",
@@ -41,152 +36,7 @@ const screens = [
     image: SignIn,
     type: "auth",
     layout: "left",
-    features: [
-      "دخول آمن وسريع",
-      "خيارات متعددة للتسجيل",
-      "استعادة كلمة المرور",
-      "حماية البيانات"
-    ]
-  },
-  {
-    title: "الشاشة الرئيسية",
-    arabicTitle: "الشاشة الرئيسية",
-    description: "لوحة التحكم مع شريط البحث والتوصيات",
-    image: HomeScreen,
-    type: "main",
-    layout: "left",
-    features: [
-      "شريط بحث ذكي للوجهات والمرشدين",
-      "توصيات مخصصة بناءً على اهتماماتك",
-      "تصنيفات متنوعة للاستكشاف",
-      "واجهة مستخدم بديهية وسلسة"
-    ]
-  },
-  {
-    title: "مساعد الذكاء الاصطناعي (مجيب)",
-    arabicTitle: "مساعد مجيب",
-    description: "مساعد شخصي يقدم تجربة مخصصة ورؤى مفيدة حول التراث السعودي",
-    image: AIAssistant,
-    type: "ai",
-    layout: "right",
-    features: [
-      "ردود فورية على استفساراتك",
-      "تخطيط مسارات سياحية ذكية",
-      "معلومات تاريخية وثقافية شاملة",
-      "دعم متعدد اللغات"
-    ]
-  },
-  {
-    title: "تفاصيل المرشد السياحي",
-    arabicTitle: "تفاصيل المرشد",
-    description: "عرض شامل لملف المرشد مع كافة المعلومات والتفاصيل",
-    image: GuideDetail,
-    type: "guide",
-    layout: "center",
-    features: [
-      "ملف شخصي كامل مع الصور",
-      "التقييمات والمراجعات الحقيقية",
-      "اللغات المتاحة والتخصصات",
-      "أوقات التوفر والحجز المباشر"
-    ]
-  },
-  {
-    title: "قائمة المرشدين",
-    arabicTitle: "قائمة المرشدين",
-    description: "تصفح المرشدين المعتمدين مع إمكانيات تصفية متقدمة",
-    image: GuideList,
-    type: "list",
-    layout: "split",
-    features: [
-      "قائمة شاملة بجميع المرشدين",
-      "فلاتر بحث متقدمة",
-      "خرائط توضح مواقع المرشدين",
-      "مقارنة بين المرشدين بسهولة"
-    ]
-  },
-  {
-    title: "شاشة التعريف ١ - التوعية والتعليم",
-    arabicTitle: "التوعية والتعليم",
-    description: "تقديم الهدف الثقافي والتعليمي للتطبيق مع إبراز التراث السعودي",
-    image: Onboarding1,
-    type: "onboarding",
-    layout: "left",
-    features: [
-      "تعريف بالهوية الثقافية السعودية",
-      "أهداف التطبيق التعليمية",
-      "قيمة التراث والحفاظ عليه",
-      "تجربة مستخدم جذابة"
-    ]
-  },
-  {
-    title: "شاشة التعريف ٢ - الخرائط التفاعلية",
-    arabicTitle: "الخرائط التفاعلية",
-    description: "استكشف المواقع الثقافية باستخدام خرائط تفاعلية غنية بالمعلومات",
-    image: Onboarding2,
-    type: "onboarding",
-    layout: "right",
-    features: [
-      "خرائط تفاعلية سهلة الاستخدام",
-      "معلومات مفصلة عن كل موقع",
-      "مسارات استكشاف مقترحة",
-      "تكامل مع نظام التوجيه"
-    ]
-  },
-  {
-    title: "شاشة التعريف ٣ - مساعد مجيب",
-    arabicTitle: "مجيب",
-    description: "مساعد السفر بالذكاء الاصطناعي الذي ينظم المسارات والوجهات",
-    image: Onboarding3,
-    type: "onboarding",
-    layout: "center",
-    features: [
-      "مساعد ذكي شخصي",
-      "تخطيط رحلات مخصص",
-      "اقتراحات ذكية بناءً على التفضيلات",
-      "دعم على مدار الساعة"
-    ]
-  },
-  {
-    title: "شاشة التعريف ٤ - المرشدون المعتمدون",
-    arabicTitle: "مرشدون معتمدون",
-    description: "التواصل مع مرشدين موثوقين ومعتمدين يجعلون التاريخ ينبض بالحياة",
-    image: Onboarding4,
-    type: "onboarding",
-    layout: "split",
-    features: [
-      "مرشدون معتمدون وموثوقون",
-      "خبراء في التراث السعودي",
-      "شهادات ومؤهلات موثقة",
-      "تجارب ثقافية غنية"
-    ]
-  },
-  {
-    title: "تفاصيل المكان",
-    arabicTitle: "تفاصيل المكان",
-    description: "عرض شامل للمكان مع الصور والمعلومات الثقافية والتقييمات",
-    image: PlaceDetail,
-    type: "place",
-    layout: "left",
-    features: [
-      "معرض صور متكامل",
-      "معلومات تاريخية مفصلة",
-      "التقييمات والمراجعات",
-      "أوقات الزيارة والمواصلات"
-    ]
-  },
-  {
-    title: "تفاصيل المكان - موسعة",
-    arabicTitle: "تفاصيل موسعة",
-    description: "عرض موسع مع الوصف التفصيلي، التاريخ، الأهمية الثقافية",
-    image: PlaceDetail2,
-    type: "place",
-    layout: "right",
-    features: [
-      "وصف تفصيلي وشامل",
-      "الأهمية التاريخية والثقافية",
-      "الأحداث والأنشطة المرتبطة",
-      "نصائح للزيارة"
-    ]
+    features: []
   },
   {
     title: "تسجيل كمرشد سياحي",
@@ -195,12 +45,7 @@ const screens = [
     image: RegisterGuide,
     type: "auth",
     layout: "center",
-    features: [
-      "تسجيل سهل وسريع",
-      "رفع المستندات والمؤهلات",
-      "إنشاء الملف الشخصي",
-      "التواصل مع المسافرين"
-    ]
+    features: []
   },
   {
     title: "تسجيل كمسافر",
@@ -209,12 +54,97 @@ const screens = [
     image: RegisterTraveler,
     type: "auth",
     layout: "split",
-    features: [
-      "تسجيل في خطوات بسيطة",
-      "تخصيص التفضيلات",
-      "حفظ الرحلات المفضلة",
-      "تجربة مخصصة"
-    ]
+    features: []
+  },
+  {
+    title: "التوعية والتعليم",
+    arabicTitle: "التوعية والتعليم",
+    description: "تقديم الهدف الثقافي والتعليمي للتطبيق مع إبراز التراث الثقافي والطبيعي",
+    image: Onboarding1,
+    type: "onboarding",
+    layout: "left",
+    features: []
+  },
+  {
+    title: "الخرائط التفاعلية",
+    arabicTitle: "الخرائط التفاعلية",
+    description: "استكشف المواقع الثقافية باستخدام خرائط تفاعلية غنية بالمعلومات",
+    image: Onboarding2,
+    type: "onboarding",
+    layout: "right",
+    features: []
+  },
+  {
+    title: "المساعد مجيب",
+    arabicTitle: "مجيب",
+    description: "مساعد مدعم بالذكاء الاصطناعي للإجابة على جميع التساؤلات والأستفسارات    ",
+    image: Onboarding3,
+    type: "onboarding",
+    layout: "center",
+    features: []
+  },
+  {
+    title: "المرشدون المعتمدون",
+    arabicTitle: "مرشدون معتمدون",
+    description: "التواصل مع مرشدين موثوقين ومعتمدين يجعلون التاريخ ينبض بالحياة",
+    image: Onboarding4,
+    type: "onboarding",
+    layout: "split",
+    features: []
+  },
+  {
+    title: "الشاشة الرئيسية",
+    arabicTitle: "الشاشة الرئيسية",
+    description: "واجهة تمكن من خوض تجربة واستكشاف التراث الثقافي والطبيعي في واجهة موحده",
+    image: HomeScreen,
+    type: "main",
+    layout: "left",
+    features: []
+  },
+  {
+    title: "مساعد الذكاء الاصطناعي (مجيب)",
+    arabicTitle: "مساعد مجيب",
+    description: "مساعد شخصي يقدم تجربة مخصصة ورؤى مفيدة حول تطبيق اثر ويجيبك على استفساراتك",
+    image: AIAssistant,
+    type: "ai",
+    layout: "right",
+    features: []
+  },
+  {
+    title: "تفاصيل المرشد السياحي",
+    arabicTitle: "تفاصيل المرشد",
+    description: "عرض شامل لملف المرشد مع كافة المعلومات والتفاصيل",
+    image: GuideDetail,
+    type: "guide",
+    layout: "center",
+    features: []
+  },
+  {
+    title: "قائمة المرشدين",
+    arabicTitle: "قائمة المرشدين",
+    description: "تصفح المرشدين المعتمدين مع إمكانيات تصفية متقدمة",
+    image: GuideList,
+    type: "list",
+    layout: "split",
+    features: []
+  },
+  {
+    title: "تفاصيل المكان",
+    arabicTitle: "تفاصيل المكان",
+    description: "عرض شامل للمكان مع الصور والمعلومات الثقافية والتقييمات",
+    image: PlaceDetail,
+    type: "place",
+    layout: "left",
+    features: []
+  },
+  {
+    title: "تفاصيل المكان - 2",
+    arabicTitle: "تفاصيل موسعة",
+    description: "عرض موسع مع الوصف التفصيلي، التاريخ، الأهمية الثقافية",
+    image: PlaceDetail2,
+    type: "place",
+    layout: "right",
+    features: []
   },
 ];
 
@@ -242,8 +172,10 @@ export default function UIScreens() {
     const container = containerRef.current;
     if (container) {
       const slideWidth = container.clientWidth;
+      const targetPosition = clampedIndex * slideWidth;
+      
       container.scrollTo({
-        left: clampedIndex * slideWidth,
+        left: targetPosition,
         behavior: 'smooth'
       });
     }
@@ -251,9 +183,18 @@ export default function UIScreens() {
 
   // scrollSlide: only scroll, do NOT set state
   const scrollSlide = (direction: 'left' | 'right') => {
+    const container = containerRef.current;
+    if (!container) return;
+    
+    const slideWidth = container.clientWidth;
+    const currentScrollPosition = container.scrollLeft;
+    const currentIndex = Math.round(currentScrollPosition / slideWidth);
+    
+    // Ensure we don't go beyond bounds
     let newIndex = direction === 'left' 
-      ? Math.max(0, currentSlide - 1)
-      : Math.min(screens.length - 1, currentSlide + 1);
+      ? Math.max(0, currentIndex - 1)
+      : Math.min(screens.length - 1, currentIndex + 1);
+    
     scrollToSlide(newIndex);
   };
 
@@ -265,10 +206,13 @@ export default function UIScreens() {
     const handleScroll = () => {
       const slideWidth = container.clientWidth;
       const scrollPosition = container.scrollLeft;
+      
+      // Use more precise calculation
       let newIndex = Math.round(scrollPosition / slideWidth);
       newIndex = Math.max(0, Math.min(newIndex, screens.length - 1));
+      
       if (newIndex !== currentSlide) {
-      setCurrentSlide(newIndex);
+        setCurrentSlide(newIndex);
       }
     };
 
@@ -297,52 +241,38 @@ export default function UIScreens() {
             >
               {/* Consistent Layout for All Screens */}
               <div className="w-full px-8 h-full flex items-center justify-between gap-8">
-                  {/* Screen Image - Left */}
-                  <motion.div 
+                {/* Screen Image - Left */}
+                <motion.div 
                   className="flex-shrink-0 flex justify-center items-center"
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                  >
+                  initial={{ opacity: 0, x: -100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
                   <img 
                     src={screen.image} 
                     alt={screen.title}
                     style={{ width: '800px', height: 'auto', maxWidth: 'none' }}
                     className="rounded-2xl shadow-2xl"
                   />
-                  </motion.div>
+                </motion.div>
 
-                  {/* Content - Right */}
-                  <motion.div 
+                {/* Content - Right */}
+                <motion.div 
                   className="flex-1 max-w-lg"
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                    <h3 className="text-3xl font-bold text-white mb-6 font-[Noto Sans Arabic]">
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20" dir="rtl">
+                      <h3 className="text-3xl font-bold text-white mb-6 font-[Noto Sans Arabic]">
                         {screen.title}
                       </h3>
-                    <p className="text-lg text-gray-200 mb-8 font-[Noto Sans Arabic] leading-relaxed">
+                      <p className="text-lg text-gray-200 font-[Noto Sans Arabic] leading-relaxed">
                         {screen.description}
                       </p>
-                    <div className="grid grid-cols-1 gap-3">
-                        {screen.features.map((feature, featureIndex) => (
-                          <motion.div
-                            key={featureIndex}
-                            className="flex items-center text-white font-[Noto Sans Arabic]"
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.4 + featureIndex * 0.1 }}
-                          >
-                          <div className="w-3 h-3 bg-amber-400 rounded-full mr-4 flex-shrink-0"></div>
-                          <span className="text-base">{feature}</span>
-                          </motion.div>
-                        ))}
-                      </div>
                     </div>
-                  </motion.div>
-                </div>
+                </motion.div>
+              </div>
 
             </div>
           ))}
@@ -390,7 +320,7 @@ export default function UIScreens() {
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="bg-black/30 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
             <span className="text-white font-[Noto Sans Arabic] text-lg">
-              {currentSlide + 1} / {screens.length} - واجهة التطبيق
+              {currentSlide + 1} / 13 - واجهة التطبيق
             </span>
           </div>
         </div>

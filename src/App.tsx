@@ -8,7 +8,6 @@ import Vision from "./sections/Vision";
 import Product from "./sections/Product";
 import Audience from "./sections/Audience";
 import Intro from "./sections/Intro";
-import Technology from "./sections/Technology";
 import UIScreens from "./sections/UIScreens";
 import NextSteps from "./sections/NextSteps";
 import OurJourney from "./sections/OurJourney";
@@ -18,13 +17,12 @@ import Dashboard from "./sections/Dashboard";
 
 // Import assets
 import logo from "./assets/logo.png";
-import worldmap from "./assets/worldmap.png";
+import worldmap from "./assets/worldmap2.jpeg";
 import cloud1 from "./assets/cloud.png";
 import heritageBg from "./assets/intro_image.jpeg";
 import architectureBg from "./assets/Background/section3.jpeg";
 import najdImg from "./assets/Background/section1.jpeg";
 import traditionalBg from "./assets/Background/section2.jpeg";
-import natureBg from "./assets/najd.jpg";
 
 // Import region images
 import hijazImg from "./assets/region/west3.jpg";
@@ -45,12 +43,11 @@ const sections = [
   { id: "product", label: " تطبيق أثر" },
   { id: "audience", label: "جمهورنا" },
   { id: "divein", label: "استكشف المناطق" },
-  { id: "technology", label: "التقنيات المستخدمة" },
   { id: "ui-screens", label: "واجهة التطبيق" },
   { id: "features", label: "المميزات" },
   { id: "journey", label: "رحلتنا" },
-  { id: "next", label: "الخطوات القادمة" },
   { id: "statistics", label: "إحصائيات السياحة" },
+  { id: "next", label: "الخطوات القادمة" },
 ];
 
 // Regions data for Dive section
@@ -303,17 +300,15 @@ export default function App() {
 
           <Dive regions={diveRegions} />
 
-          <Technology natureBg={natureBg} />
-
           <UIScreens />
 
           <Features logo={logo} />
 
           <OurJourney logo={logo} />
 
-          <NextSteps logo={logo} />
-
           <Dashboard />
+
+          <NextSteps logo={logo} />
         </>
       )}
     </div>

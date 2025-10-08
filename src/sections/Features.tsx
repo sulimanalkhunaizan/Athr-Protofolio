@@ -8,20 +8,20 @@ interface FeaturesSectionProps {
 export default function FeaturesSection({ logo }: FeaturesSectionProps) {
   const currentFeatures = [
     {
-      title: "AI-Powered Heritage Guide",
-      description: "Intelligent assistant that provides contextual information about heritage sites",
+      title: "مساعد التراث بالذكاء الاصطناعي",
+      description: "مساعد ذكي يقدم معلومات سياقية حول المواقع التراثية",
       icon: "🤖",
       status: "current"
     },
     {
-      title: "Multilingual Support",
-      description: "Support for Arabic, English, and other languages",
+      title: "دعم متعدد اللغات",
+      description: "دعم للغة العربية والإنجليزية ولغات أخرى",
       icon: "🌐",
       status: "current"
     },
     {
-      title: "Interactive Maps",
-      description: "Detailed maps with heritage site locations and information",
+      title: "خرائط تفاعلية",
+      description: "خرائط مفصلة مع مواقع المعلومات التراثية والمعلومات",
       icon: "🗺️",
       status: "current"
     }
@@ -29,38 +29,38 @@ export default function FeaturesSection({ logo }: FeaturesSectionProps) {
 
   const upcomingFeatures = [
     {
-      title: "AR Heritage Experience",
-      description: "Augmented reality features to bring heritage sites to life",
+      title: "تجربة التراث بالواقع المعزز",
+      description: "مميزات الواقع المعزز لإحياء المواقع التراثية",
       icon: "🥽",
       status: "upcoming"
     },
     {
-      title: "Voice Navigation",
-      description: "Voice-guided tours in multiple languages",
+      title: "التوجيه الصوتي",
+      description: "جولات موجهة بالصوت بلغات متعددة",
       icon: "🎤",
       status: "upcoming"
     },
     {
-      title: "Social Sharing",
-      description: "Share your heritage journey with friends and family",
+      title: "المشاركة الاجتماعية",
+      description: "شارك رحلتك التراثية مع الأصدقاء والعائلة",
       icon: "📱",
       status: "upcoming"
     },
     {
-      title: "Offline Mode",
-      description: "Access heritage information without internet connection",
+      title: "الوضع دون اتصال",
+      description: "الوصول إلى معلومات التراث دون اتصال بالإنترنت",
       icon: "📶",
       status: "upcoming"
     },
     {
-      title: "Gamification",
-      description: "Earn badges and achievements for exploring heritage sites",
+      title: "أبطال التراث",
+      description: "اكسب الشارات والإنجازات لاستكشاف المواقع التراثية",
       icon: "🏆",
       status: "upcoming"
     },
     {
-      title: "Community Features",
-      description: "Connect with other heritage enthusiasts and share experiences",
+      title: "مميزات المجتمع",
+      description: "تواصل مع عشاق التراث الآخرين وشارك التجارب",
       icon: "👥",
       status: "upcoming"
     }
@@ -70,23 +70,23 @@ export default function FeaturesSection({ logo }: FeaturesSectionProps) {
     <section id="features" className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white py-20">
       <div className="container mx-auto px-8">
         <motion.h2 
-          className="text-5xl md:text-7xl font-bold mb-20 text-white text-center"
+          className="text-5xl md:text-7xl font-bold mb-20 text-white text-center font-[Noto Sans Arabic]"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Features
+          المميزات
         </motion.h2>
         
         {/* Current Features */}
         <div className="mb-20">
           <motion.h3 
-            className="text-3xl md:text-4xl font-bold mb-12 text-amber-400 text-center"
+            className="text-3xl md:text-4xl font-bold mb-12 text-amber-400 text-center font-[Noto Sans Arabic]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Current Features
+            المميزات الحالية
           </motion.h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -101,17 +101,17 @@ export default function FeaturesSection({ logo }: FeaturesSectionProps) {
               >
                 <div className="text-center mb-6">
                   <div className="text-6xl mb-4">{feature.icon}</div>
-                  <h4 className="text-2xl font-bold text-amber-300 mb-4">
+                  <h4 className="text-2xl font-bold text-amber-300 mb-4 font-[Noto Sans Arabic]">
                     {feature.title}
                   </h4>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed font-[Noto Sans Arabic]">
                     {feature.description}
                   </p>
                 </div>
                 
                 <div className="flex justify-center">
-                  <span className="inline-block bg-amber-400 text-black px-4 py-2 rounded-full text-sm font-bold">
-                    Available Now
+                  <span className="inline-block bg-amber-400 text-black px-4 py-2 rounded-full text-sm font-bold font-[Noto Sans Arabic]">
+                    متاح الآن
                   </span>
                 </div>
               </motion.div>
@@ -122,12 +122,12 @@ export default function FeaturesSection({ logo }: FeaturesSectionProps) {
         {/* Upcoming Features */}
         <div>
           <motion.h3 
-            className="text-3xl md:text-4xl font-bold mb-12 text-green-400 text-center"
+            className="text-3xl md:text-4xl font-bold mb-12 text-green-400 text-center font-[Noto Sans Arabic]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Upcoming Features
+            المميزات القادمة
           </motion.h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -142,35 +142,23 @@ export default function FeaturesSection({ logo }: FeaturesSectionProps) {
               >
                 <div className="text-center mb-6">
                   <div className="text-6xl mb-4 opacity-70">{feature.icon}</div>
-                  <h4 className="text-2xl font-bold text-white mb-4">
+                  <h4 className="text-2xl font-bold text-white mb-4 font-[Noto Sans Arabic]">
                     {feature.title}
                   </h4>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed font-[Noto Sans Arabic]">
                     {feature.description}
                   </p>
                 </div>
                 
                 <div className="flex justify-center">
-                  <span className="inline-block bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                    Coming Soon
+                  <span className="inline-block bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-bold font-[Noto Sans Arabic]">
+                    قريباً
                   </span>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
-
-        {/* Footer */}
-        <motion.div 
-          className="mt-20 pt-8 border-t border-white/20 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <img src={logo} alt="Athr Logo" className="mx-auto w-16 mb-4 opacity-80" />
-          <p className="text-gray-400">© 2025 Athr. Preserving Heritage, Inspiring Futures.</p>
-          <p className="text-gray-500 text-sm mt-2">Contact: hello@athr.com | +966 123 456 789</p>
-        </motion.div>
       </div>
     </section>
   );

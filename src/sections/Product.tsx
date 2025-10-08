@@ -35,10 +35,8 @@ export default function ProductSection({ desertBg }: ProductSectionProps) {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="text-3xl font-bold text-[#FFD700] mb-6 font-[Noto Sans Arabic]">أداة هجينة متكاملة</h3>
-            <p className="text-2xl text-gray-200 mb-8 font-[Noto Sans Arabic]">
-              تعمل باتجاهين لتوصلك إلى ما تريد وتصلك أين ما تكون
-            </p>
+            <h3 className="text-3xl font-bold text-[#FFD700] mb-6 font-[Noto Sans Arabic]">هي وسيلتك لتخوض في رحلة التراث و الثقافة للملكة .. بأسلوب عصري وحديث</h3>
+            
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-rows-2 gap-8">

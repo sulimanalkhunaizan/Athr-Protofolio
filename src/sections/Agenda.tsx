@@ -20,22 +20,6 @@ export default function AgendaSection({ heritageBg, sections, onJump }: AgendaSe
       </div>
 
       <div className="container mx-auto px-8 py-20 relative z-10">
-        <motion.h1 
-          className="text-6xl md:text-8xl font-bold text-center mb-4 text-white font-[Noto Sans Arabic]"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          أثر
-        </motion.h1>
-        <motion.p 
-          className="text-xl md:text-2xl text-center text-gray-200 mb-16 font-[Noto Sans Arabic]"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          هو تطبيق جوال يهدف إلى أن يكون أداة (هجينة) مرنة ومتنوعة الفاعلية وقابلة للتطوير، تختص بالتراث والثقافة والآثار في المملكة العربية السعودية
-        </motion.p>
 
         <div className="max-w-4xl mx-auto">
           <motion.h2 

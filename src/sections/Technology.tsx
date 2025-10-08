@@ -49,34 +49,6 @@ export default function TechnologySection({ natureBg }: TechnologySectionProps) 
       position: "bottom-left"
     },
     {
-      id: "iot",
-      title: "إنترنت الأشياء",
-      icon: "🌐",
-      description: "الشبكة الذكية للأجهزة",
-      features: [
-        "أجهزة استشعار ذكية",
-        "مراقبة المواقع التراثية",
-        "تحليل البيانات في الوقت الفعلي",
-        "النظم الذكية المتكاملة"
-      ],
-      color: "from-orange-500 to-red-500",
-      position: "bottom-right"
-    },
-    {
-      id: "cloud",
-      title: "الحوسبة السحابية",
-      icon: "☁️",
-      description: "البنية التحتية السحابية",
-      features: [
-        "تخزين سحابي آمن",
-        "معالجة البيانات الضخمة",
-        "النسخ الاحتياطي التلقائي",
-        "الوصول العالمي للمعلومات"
-      ],
-      color: "from-indigo-500 to-purple-500",
-      position: "center-left"
-    },
-    {
       id: "mobile",
       title: "التطبيقات المحمولة",
       icon: "📱",
@@ -88,7 +60,7 @@ export default function TechnologySection({ natureBg }: TechnologySectionProps) 
         "الأداء المحسن"
       ],
       color: "from-teal-500 to-blue-500",
-      position: "center-right"
+      position: "bottom-right"
     }
   ];
 
@@ -129,7 +101,7 @@ export default function TechnologySection({ natureBg }: TechnologySectionProps) 
 
         {/* Central Hub */}
         <motion.div
-          className="relative max-w-6xl mx-auto"
+          className="relative max-w-7xl mx-auto min-h-[800px]"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
@@ -151,17 +123,15 @@ export default function TechnologySection({ natureBg }: TechnologySectionProps) 
           </motion.div>
 
           {/* Technology Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-20">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.id}
                 className={`relative group ${
                   tech.position === 'top-left' ? 'md:col-start-1 md:row-start-1' :
-                  tech.position === 'top-right' ? 'md:col-start-3 md:row-start-1' :
-                  tech.position === 'bottom-left' ? 'md:col-start-1 md:row-start-3' :
-                  tech.position === 'bottom-right' ? 'md:col-start-3 md:row-start-3' :
-                  tech.position === 'center-left' ? 'md:col-start-1 md:row-start-2' :
-                  'md:col-start-3 md:row-start-2'
+                  tech.position === 'top-right' ? 'md:col-start-2 md:row-start-1' :
+                  tech.position === 'bottom-left' ? 'md:col-start-1 md:row-start-2' :
+                  'md:col-start-2 md:row-start-2'
                 }`}
                 initial={{ opacity: 0, y: 50, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -215,21 +185,32 @@ export default function TechnologySection({ natureBg }: TechnologySectionProps) 
 
           {/* Connection Lines */}
           <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none">
-            {technologies.map((tech, index) => (
-              <motion.line
-                key={tech.id}
-                x1="50%"
-                y1="50%"
-                x2={`${50 + (index % 2 === 0 ? -20 : 20)}%`}
-                y2={`${50 + (index < 2 ? -20 : index < 4 ? 0 : 20)}%`}
-                stroke="url(#gradient)"
-                strokeWidth="2"
-                strokeDasharray="5,5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                whileInView={{ pathLength: 1, opacity: 0.6 }}
-                transition={{ duration: 1.5, delay: 1 + index * 0.2 }}
-              />
-            ))}
+            {technologies.map((tech, index) => {
+              // Calculate positions for 2x2 grid with more distance from center
+              const positions = [
+                { x: 15, y: 15 },  // top-left (AI)
+                { x: 85, y: 15 },  // top-right (AR/VR)
+                { x: 15, y: 85 },  // bottom-left (Blockchain)
+                { x: 85, y: 85 }   // bottom-right (Mobile)
+              ];
+              const pos = positions[index];
+              
+              return (
+                <motion.line
+                  key={tech.id}
+                  x1="50%"
+                  y1="50%"
+                  x2={`${pos.x}%`}
+                  y2={`${pos.y}%`}
+                  stroke="url(#gradient)"
+                  strokeWidth="3"
+                  strokeDasharray="8,4"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  whileInView={{ pathLength: 1, opacity: 0.8 }}
+                  transition={{ duration: 1.5, delay: 1 + index * 0.2 }}
+                />
+              );
+            })}
             <defs>
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#00A86B" stopOpacity="0.8" />

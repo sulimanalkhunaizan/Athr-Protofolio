@@ -14,31 +14,31 @@ export default function OurJourneySection({ logo }: OurJourneySectionProps) {
       status: "start"
     },
     {
-      date: "Q2 2025", 
+      date: "",
       title: "Market Research",
       description: "Comprehensive analysis of target markets and customer segments",
       status: "done"
     },
     {
-      date: "Q3 2025",
+      date: "",
       title: "Prototype Development",
       description: "Build and test initial product prototypes",
       status: "current"
     },
     {
-      date: "Q4 2025",
+      date: "",
       title: "Non-Financial Seed",
       description: "Secure initial investment to scale operations and team",
       status: "upcoming"
     },
     {
-      date: "Q1 2026",
+      date: "",
       title: "Beta Launch",
       description: "Public beta release with early adopter program",
       status: "upcoming"
     },
     {
-      date: "Q2 2026",
+      date: "",
       title: "Full Platform Launch",
       description: "Official public launch across all target markets",
       status: "upcoming"

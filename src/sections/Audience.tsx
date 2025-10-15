@@ -7,7 +7,7 @@ interface AudienceSectionProps {
 export default function AudienceSection({ traditionalBg }: AudienceSectionProps) {
   const audiences = [
     {
-      title: "المواطنون والمقيمون",
+      title: "المواطنين والمقيمين",
       description: "  اكتشاف معالم وطنهم والتعرف على تاريخه",
       color: "#006C35"
     },
@@ -47,7 +47,7 @@ export default function AudienceSection({ traditionalBg }: AudienceSectionProps)
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          جمهورنا المستهدف
+          الجمهور المستهدف
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

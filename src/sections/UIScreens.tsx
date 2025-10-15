@@ -39,27 +39,27 @@ const screens = [
     features: []
   },
   {
-    title: "تسجيل كمرشد سياحي",
-    arabicTitle: "تسجيل مرشد",
-    description: "منصة متكاملة لتسجيل المرشدين السياحيين المعتمدين",
-    image: RegisterGuide,
-    type: "auth",
-    layout: "center",
-    features: []
-  },
-  {
-    title: "تسجيل كمسافر",
+    title: "تسجيل كمستخدم",
     arabicTitle: "تسجيل مسافر",
-    description: "انضم إلى منصة أثر لاكتشاف كنوز التراث السعودي",
+    description: "خطوتك الأولى لتنظم لنا لإستكشاف التراث الثقافي",
     image: RegisterTraveler,
     type: "auth",
     layout: "split",
     features: []
   },
   {
+    title: "تسجيل كمرشد ",
+    arabicTitle: "تسجيل مرشد",
+    description: "شريك النجاح في إبراز التراث الثقافي والطبيعي",
+    image: RegisterGuide,
+    type: "auth",
+    layout: "center",
+    features: []
+  },
+  {
     title: "التوعية والتعليم",
     arabicTitle: "التوعية والتعليم",
-    description: "تقديم الهدف الثقافي والتعليمي للتطبيق مع إبراز التراث الثقافي والطبيعي",
+    description: "تقديم الهدف التوعوي والتعليمي",
     image: Onboarding1,
     type: "onboarding",
     layout: "left",
@@ -77,7 +77,7 @@ const screens = [
   {
     title: "المساعد مجيب",
     arabicTitle: "مجيب",
-    description: "مساعد مدعم بالذكاء الاصطناعي للإجابة على جميع التساؤلات والأستفسارات    ",
+    description: "مساعد شخصي يقدم تجربة مخصصة ورؤى مفيدة حول تطبيق اثر ويجيبك على استفساراتك    ",
     image: Onboarding3,
     type: "onboarding",
     layout: "center",
@@ -86,7 +86,7 @@ const screens = [
   {
     title: "المرشدون المعتمدون",
     arabicTitle: "مرشدون معتمدون",
-    description: "التواصل مع مرشدين موثوقين ومعتمدين يجعلون التاريخ ينبض بالحياة",
+    description: "يجعلون التاريخ ينبض بالحياة",
     image: Onboarding4,
     type: "onboarding",
     layout: "split",
@@ -95,19 +95,37 @@ const screens = [
   {
     title: "الشاشة الرئيسية",
     arabicTitle: "الشاشة الرئيسية",
-    description: "واجهة تمكن من خوض تجربة واستكشاف التراث الثقافي والطبيعي في واجهة موحده",
+    description: "واجهة تمكنك من خوض تجربة واستكشاف التراث الثقافي والطبيعي في واجهة موحده ",
     image: HomeScreen,
     type: "main",
     layout: "left",
     features: []
   },
   {
-    title: "مساعد الذكاء الاصطناعي (مجيب)",
-    arabicTitle: "مساعد مجيب",
-    description: "مساعد شخصي يقدم تجربة مخصصة ورؤى مفيدة حول تطبيق اثر ويجيبك على استفساراتك",
-    image: AIAssistant,
-    type: "ai",
+    title: "تفاصيل المكان",
+    arabicTitle: "تفاصيل المكان",
+    description: "عرض المعلومات للموقع والسردية الثقافية المعتمدة",
+    image: PlaceDetail,
+    type: "place",
+    layout: "left",
+    features: []
+  },
+  {
+    title: "تفاصيل المكان - 2",
+    arabicTitle: "تفاصيل موسعة",
+    description: "عرض موسع يشمل معلومات هامة للزيارة والتقييمات",
+    image: PlaceDetail2,
+    type: "place",
     layout: "right",
+    features: []
+  },
+  {
+    title: "قائمة المرشدين",
+    arabicTitle: "قائمة المرشدين",
+    description: "تصفح وقارن قائمة المرشدين المعتمدين مع إمكانيات تصفية متقدمة ",
+    image: GuideList,
+    type: "list",
+    layout: "split",
     features: []
   },
   {
@@ -120,29 +138,11 @@ const screens = [
     features: []
   },
   {
-    title: "قائمة المرشدين",
-    arabicTitle: "قائمة المرشدين",
-    description: "تصفح المرشدين المعتمدين مع إمكانيات تصفية متقدمة",
-    image: GuideList,
-    type: "list",
-    layout: "split",
-    features: []
-  },
-  {
-    title: "تفاصيل المكان",
-    arabicTitle: "تفاصيل المكان",
-    description: "عرض شامل للمكان مع الصور والمعلومات الثقافية والتقييمات",
-    image: PlaceDetail,
-    type: "place",
-    layout: "left",
-    features: []
-  },
-  {
-    title: "تفاصيل المكان - 2",
-    arabicTitle: "تفاصيل موسعة",
-    description: "عرض موسع مع الوصف التفصيلي، التاريخ، الأهمية الثقافية",
-    image: PlaceDetail2,
-    type: "place",
+    title: "مساعد الذكاء الاصطناعي (مجيب)",
+    arabicTitle: "مساعد مجيب",
+    description: "",
+    image: AIAssistant,
+    type: "ai",
     layout: "right",
     features: []
   },

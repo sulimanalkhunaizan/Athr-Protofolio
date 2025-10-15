@@ -39,15 +39,12 @@ import najdIBg from "./assets/najd_naqsh.jpg";
 
 const sections = [
   { id: "overview", label: "نظرة عامة" },
-  { id: "vision", label: "رؤيتنا ورسالتنا" },
-  { id: "product", label: " تطبيق أثر" },
-  { id: "audience", label: "جمهورنا" },
-  { id: "divein", label: "استكشف المناطق" },
-  { id: "ui-screens", label: "واجهة التطبيق" },
-  { id: "features", label: "المميزات" },
-  { id: "journey", label: "رحلتنا" },
-  { id: "statistics", label: "إحصائيات السياحة" },
-  { id: "next", label: "الخطوات القادمة" },
+  { id: "vision", label: "الرؤية والرسالة " },
+  { id: "audience", label: "الجمهور المستهدف" },
+  { id: "divein", label: "مناطق المملكة " },
+  { id: "product", label: "ماهو أثر" },
+  { id: "statistics", label: " الإحصائيات" },
+  { id: "journey", label: "خارطة الطريق" },
 ];
 
 // Regions data for Dive section
@@ -260,20 +257,29 @@ export default function App() {
       {!showPoem && (
         <>
           {/* Navigation Dots */}
-          <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center space-y-4">
-            {sections.map((sec) => {
+          <nav className="fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center space-y-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+            {sections.map((sec, index) => {
               const active = sec.id === activeId;
               return (
                 <button
                   key={sec.id}
                   onClick={() => jump(sec.id)}
                   aria-label={sec.label}
-                  className={`h-3 w-3 rounded-full transition-all ${
+                  className={`relative h-6 w-6 rounded-full transition-all duration-300 group flex items-center justify-center ${
                     active
-                      ? "bg-[#006C35] scale-125 shadow-[0_0_6px_rgba(0,108,53,0.8)]"
-                      : "bg-gray-400 hover:bg-gray-200"
+                      ? "bg-[#beb389]/80 scale-125 shadow-[0_0_10px_rgba(190,179,137,0.4)]"
+                      : "bg-gray-400/30 hover:bg-gray-300/50 hover:scale-110 border border-white/10"
                   }`}
-                />
+                >
+                  {/* Section number inside dot */}
+                  <span className={`text-xs font-medium transition-all duration-300 ${
+                    active 
+                      ? "text-gray-900" 
+                      : "text-gray-500"
+                  }`}>
+                    {index + 1}
+                  </span>
+                </button>
               );
             })}
           </nav>
@@ -294,19 +300,19 @@ export default function App() {
 
           <Vision architectureBg={architectureBg} />
 
-          <Product desertBg={najdImg} />
-
           <Audience traditionalBg={traditionalBg} />
 
           <Dive regions={diveRegions} />
+
+          <Product desertBg={najdImg} />
 
           <UIScreens />
 
           <Features logo={logo} />
 
-          <OurJourney logo={logo} />
-
           <Dashboard />
+
+          <OurJourney logo={logo} />
 
           <NextSteps logo={logo} />
         </>
